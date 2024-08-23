@@ -1,10 +1,9 @@
 import CocheClass
 
-micoche = CocheClass.Coche("Ford", "Focus", 1998, "Azul", 1, False)
+miCoche = CocheClass.Coche("Ford", "Focus", 1998, "Azul", 1, False)
+simuladorEncendido = True
 
-simulaorOn = True
-
-while simulaorOn:
+while simuladorEncendido:
     print("1. Encender")
     print("2. Apagar")
     print("3. Acelerar")
@@ -15,17 +14,17 @@ while simulaorOn:
     opcion = int(input("Introduce una opción: "))
 
     if opcion == 1:
-        micoche.encender()
+        miCoche.encender()
     elif opcion == 2:
-        micoche.apagar()
+        miCoche.apagar()
     elif opcion == 3:
-        micoche.acelerar(micoche.nivelCombustible)
+        miCoche.acelerar(miCoche.nivelCombustible)
     elif opcion == 4:
-        micoche.repostar()
+        miCoche.repostar()
     elif opcion == 5:
-        micoche.obtenerNivelCombustible()
+        miCoche.obtenerNivelCombustible()
     elif opcion == 6:
-        simulaorOn = False
+        Encendido = False
     else:
         print("Introduce una opción válida")
 
