@@ -22,20 +22,29 @@ class Coche:
             print("El coche se ha apagado")
 
     def acelerar(self, nivelCombustible):
-        if self.encendido:
+        if nivelCombustible < 1:
+            self.apagar()
+            print("No hay conbustible")
+            self.nivelCombustible = 0
+
+        elif not self.encendido:
+            print("El coche está apagado, no se puede acelerar")
+            return
+
+        elif self.encendido:
             print("El coche está acelerando")
             self.nivelCombustible -= 1
-            print("El nivel de combustible es:", self.nivelCombustible)
 
-        if nivelCombustible < 2:
-            print("El coche está apagado, no hay conbustible")
-            self.apagar()
+        print("El nivel de combustible es:", self.nivelCombustible)
 
     def repostar(self):
-        if self.nivelCombustible < 1:
-            print("El coche está repostando")
-            self.nivelCombustible = 10
+        print("El coche está repostando")
+        self.nivelCombustible += 10
 
-        if self.nivelCombustible == 12:
+        if self.nivelCombustible > 12:
+            self.nivelCombustible = 12
             print("El coche ya está lleno de combustible")
             print("El nivel de combustible es:", self.nivelCombustible)
+
+    def obtenerNivelCombustible(self):
+        return print("El nivel de combustible es " + str(self.nivelCombustible))
