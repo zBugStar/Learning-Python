@@ -1,6 +1,7 @@
 # BibliotecaClass.py
 import LibroClass
 
+
 class Biblioteca:
     def __init__(self):
         self.libros = []
@@ -26,6 +27,7 @@ class Biblioteca:
                 print("El libro ya esta en la biblioteca")
                 return
 
-    def consultarLibro(self):
+    def consultarLibro(self, nombreLibro, nombreAutor):
         for libro in self.libros:
-            print(f"Titulo: {libro.titulo}, Autor: {libro.autor}, Disponible: {libro.disponible}")
+            if libro.titulo in nombreLibro or libro.autor in nombreAutor:
+                print(f"Titulo: {libro.titulo}, Autor: {libro.autor}, Disponible: {libro.disponible}")
