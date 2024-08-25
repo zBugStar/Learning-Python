@@ -29,7 +29,7 @@ while programaOn:
     elif opcion == 2:
 
         nombreLibro = input("Digite el nombre del libro que desea consultar: ")
-        nombreAutor = input("Digite el autor del libro")
+        nombreAutor = input("Digite el autor del libro: ")
         print("Libros disponibles:")
         biblioteca.consultarLibro(nombreLibro, nombreAutor)
         print("\n")

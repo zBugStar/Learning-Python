@@ -29,5 +29,5 @@ class Biblioteca:
 
     def consultarLibro(self, nombreLibro, nombreAutor):
         for libro in self.libros:
-            if libro.titulo in nombreLibro or libro.autor in nombreAutor:
+            if nombreLibro.lower() in libro.titulo.lower() or nombreAutor.lower() in libro.autor.lower():
                 print(f"Titulo: {libro.titulo}, Autor: {libro.autor}, Disponible: {libro.disponible}")
