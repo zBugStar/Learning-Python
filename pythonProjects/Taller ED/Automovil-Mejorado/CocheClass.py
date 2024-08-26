@@ -20,6 +20,8 @@ class Coche:
         if self.encendido:
             self.encendido = False
             print("El coche se ha apagado")
+        else:
+            print("El coche ya esta apagado")
 
     def acelerar(self, nivelCombustible):
         if nivelCombustible < 1:
