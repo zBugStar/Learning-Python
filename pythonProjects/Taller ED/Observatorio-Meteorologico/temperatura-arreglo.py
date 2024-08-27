@@ -1,26 +1,49 @@
-temperatura = {}
+import numpy as np
 
-programaOn = True
 
-print("Bienvenido al Observatorio Meteorológico")
-print("Vamos a ingresar unas temperaturas para analizarlas")
-print("El maximo de temperaturas a ingresar es de 24")
+# Función para pedir una temperatura al usuario
+def pedir_temperatura():
+    while True:
+        entrada = input("Ingrese una temperatura en grados Celsius o 'fin' para terminar: ")
+        if entrada.lower() == 'fin':
+            return None
+        try:
+            temperatura = float(entrada)
+            return temperatura
+        except ValueError:
+            print("Entrada inválida. Por favor, ingrese un número o 'fin'.")
 
-while programaOn:
-    temp = input("Ingrese la temperatura, si desea no ingresar mas temperaturas escriba fin: ")
 
-    if temp == "fin":
-        programaOn = False
+def main():
+    temperaturas = []
+    limite = 10  # Puedes ajustar el límite según lo que necesites
 
-    elif len(temperatura) == 24:
-        programaOn = False
+    print(f"Ingrese hasta {limite} temperaturas. Ingrese 'fin' para terminar antes.")
+    while len(temperaturas) < limite:
+        temp = pedir_temperatura()
+        if temp is None:
+            break
+        temperaturas.append(temp)
 
-    else:
-        temperatura.append(temp)
+    if not temperaturas:
+        print("No se ingresaron temperaturas.")
+        return
 
-temperaturaConv = [int(i) for i in temperatura]
+    temp_array = np.array(temperaturas)
 
-print("Las temperaturas ingresadas son: ", temperatura)
-print("La temperatura mas baja es: ", min(temperatura))
-print("La temperatura mas alta es: ", max(temperatura))
-print("La temperatura promedio es: ", sum(temperaturaConv) / len(temperaturaConv))
+    temp_max = np.max(temp_array)
+    temp_min = np.min(temp_array)
+    temp_prom = np.mean(temp_array)
+
+    print(f"Temperatura máxima: {temp_max} °C")
+    print(f"Temperatura mínima: {temp_min} °C")
+    print(f"Temperatura promedio: {temp_prom:.2f} °C")
+
+    temperaturas_sobre_prom = temp_array[temp_array > temp_prom]
+    print("Temperaturas por encima del promedio:")
+    for temp in temperaturas_sobre_prom:
+        print(f"{temp} °C")
+
+
+if __name__ == "__main__":
+    main()
