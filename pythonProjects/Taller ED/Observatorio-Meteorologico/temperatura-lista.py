@@ -26,17 +26,17 @@ def main():
         print("No se ingresaron temperaturas.")
         return
 
-    temp_max = max(temperaturas)
-    temp_min = min(temperaturas)
-    temp_prom = sum(temperaturas) / len(temperaturas)
+    tempMax = max(temperaturas)
+    tempMin = min(temperaturas)
+    tempProm = sum(temperaturas) / len(temperaturas)
 
-    print(f"Temperatura máxima: {temp_max} °C")
-    print(f"Temperatura mínima: {temp_min} °C")
-    print(f"Temperatura promedio: {temp_prom:.2f} °C")
+    print(f"Temperatura máxima: {tempMax} °C")
+    print(f"Temperatura mínima: {tempMin} °C")
+    print(f"Temperatura promedio: {tempProm:.2f} °C")
 
-    temperaturas_sobre_prom = [temp for temp in temperaturas if temp > temp_prom]
+    temperaturasSobreProm = [temp for temp in temperaturas if temp > tempProm]
     print("Temperaturas por encima del promedio:")
-    for temp in temperaturas_sobre_prom:
+    for temp in temperaturasSobreProm:
         print(f"{temp} °C")
 
 

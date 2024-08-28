@@ -1,8 +1,7 @@
 import numpy as np
 
 
-# Función para pedir una temperatura al usuario
-def pedir_temperatura():
+def pedirTemperatura():
     while True:
         entrada = input("Ingrese una temperatura en grados Celsius o 'fin' para terminar: ")
         if entrada.lower() == 'fin':
@@ -16,11 +15,11 @@ def pedir_temperatura():
 
 def main():
     temperaturas = []
-    limite = 10  # Puedes ajustar el límite según lo que necesites
+    limite = 10
 
     print(f"Ingrese hasta {limite} temperaturas. Ingrese 'fin' para terminar antes.")
     while len(temperaturas) < limite:
-        temp = pedir_temperatura()
+        temp = pedirTemperatura()
         if temp is None:
             break
         temperaturas.append(temp)
@@ -29,19 +28,19 @@ def main():
         print("No se ingresaron temperaturas.")
         return
 
-    temp_array = np.array(temperaturas)
+    tempArray = np.array(temperaturas)
 
-    temp_max = np.max(temp_array)
-    temp_min = np.min(temp_array)
-    temp_prom = np.mean(temp_array)
+    tempMax = np.max(tempArray)
+    tempMin = np.min(tempArray)
+    tempProm = np.mean(tempArray)
 
-    print(f"Temperatura máxima: {temp_max} °C")
-    print(f"Temperatura mínima: {temp_min} °C")
-    print(f"Temperatura promedio: {temp_prom:.2f} °C")
+    print(f"Temperatura máxima: {tempMax} °C")
+    print(f"Temperatura mínima: {tempMin} °C")
+    print(f"Temperatura promedio: {tempProm:.2f} °C")
 
-    temperaturas_sobre_prom = temp_array[temp_array > temp_prom]
+    temperarurasSobrePromedio = tempArray[tempArray > tempProm]
     print("Temperaturas por encima del promedio:")
-    for temp in temperaturas_sobre_prom:
+    for temp in temperarurasSobrePromedio:
         print(f"{temp} °C")
 
 
