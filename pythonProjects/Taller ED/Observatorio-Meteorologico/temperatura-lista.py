@@ -1,4 +1,3 @@
-# Función para pedir una temperatura al usuario
 def pedir_temperatura():
     while True:
         entrada = input("Ingrese una temperatura en grados Celsius o 'fin' para terminar: ")
@@ -13,7 +12,7 @@ def pedir_temperatura():
 
 def main():
     temperaturas = []
-    limite = 10  # Puedes ajustar el límite según lo que necesites
+    limite = 10
 
     print(f"Ingrese hasta {limite} temperaturas. Ingrese 'fin' para terminar antes.")
     while len(temperaturas) < limite:
