@@ -17,7 +17,7 @@ for i in range(tamaño):
             break
         else:
             pila.pop()
-        cerradura +=
+        cerradura += 1
 
     elif ecuacion[i] == "[":
         print("Error: hay un paréntesis de apertura sin su respectiva cierre.")
