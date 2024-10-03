@@ -9,18 +9,20 @@ class ListaEnlazada:
         self.cabeza = None
 
     def insertar(self, valor):
-        nuevo_nodo = Nodo(valor)
-        if self.cabeza is None or self.cabeza.valor >= nuevo_nodo.valor:
-            nuevo_nodo.siguiente = self.cabeza
-            self.cabeza = nuevo_nodo
+        
+        nuevoNodo = Nodo(valor)
+        if self.cabeza is None or self.cabeza.valor >= nuevoNodo.valor:
+            nuevoNodo.siguiente = self.cabeza
+            self.cabeza = nuevoNodo
         else:
             actual = self.cabeza
-            while actual.siguiente is not None and actual.siguiente.valor < nuevo_nodo.valor:
+            while actual.siguiente is not None and actual.siguiente.valor < nuevoNodo.valor:
                 actual = actual.siguiente
-            nuevo_nodo.siguiente = actual.siguiente
-            actual.siguiente = nuevo_nodo
+            nuevoNodo.siguiente = actual.siguiente
+            actual.siguiente = nuevoNodo
 
-    def to_list(self):
+    def resultadoLista(self):
+
         resultado = []
         actual = self.cabeza
         while actual is not None:
@@ -29,14 +31,14 @@ class ListaEnlazada:
         return resultado
 
 
-def ordenamiento_por_insercion(vector):
+def ordenamientoPorInsercion(vector):
     lista = ListaEnlazada()
     for valor in vector:
         lista.insertar(valor)
-    return lista.to_list()
+    return lista.resultadoLista()
 
 
-# Ejemplo de uso
 vector = [4, 2, 7, 1, 3]
-ordenado = ordenamiento_por_insercion(vector)
-print(ordenado)  # Salida: [1, 2, 3, 4, 7]
+ordenado = ordenamientoPorInsercion(vector)
+print("La lista ordenada de menor a mayor es: ")
+print(ordenado)
